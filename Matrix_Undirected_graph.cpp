@@ -23,6 +23,7 @@ int main(){
     for(int i=0;i<v;i++){
         for(int j=0;j<v;j++){
             cout<<graph[i][j]<<" ";
+            //hdjhdjhdjdhjh
         }
         cout<<endl;
         
