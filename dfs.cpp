@@ -42,7 +42,7 @@ int main()
 	root->left->left = new Node(4);
 	root->left->right = new Node(5);
 
-	cout << "\nInorder traversal of bin.ary tree is \n";
+	cout << "\nInorder traversal of binary tree is \n";
 	inorder(root);
     cout << "\nPreorder traversal of binary tree is \n";
 	preorder(root);
