@@ -29,6 +29,7 @@ int minOperation(int arr[], int n) {
 
 int main() {
 	int t;
+    cin>>t;
     while(t--){
         int n ;
         cin>>n;
