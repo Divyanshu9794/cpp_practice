@@ -11,10 +11,12 @@ int main(){
         string b = a;
         reverse(a.begin(),a.end());
         if(a==b){
-            cout<<'wins';
+            cout<<"wins"<<endl;
 
         }
-        cout<<'wins';
+        else{
+            cout<<"loses"<<endl;
+        }
 
     }
     return 0;
