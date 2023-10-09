@@ -4,7 +4,7 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        int n;
+        int n,b;
         cin>>n;
         string s;
         char c;
@@ -13,14 +13,19 @@ int main(){
             s+=c;
         }
         for(int i=0;i<n;i++){
-            if(s[i]=='0'){
-                cout<<"YES"<<endl;
+            if(s[i]=='0' || s[i]=='5'){
+                b++;
 
             }
             
         }
-        cout<<"No"<<endl;
+        if(b>0){
+            cout<<"Yes"<<endl;
 
+        }
+        else{
+            cout<<"No"<<endl;
+        }
     }
     return 0;
 }
