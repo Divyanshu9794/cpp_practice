@@ -16,11 +16,11 @@ int main(){
                 d0++;
             }
             else{
-                d1++; 
+                d1++;
             }
 
         }
-        if(abs(d0-d1)==1){
+        if(d1==1 || d0==1){
             cout<<"Yes"<<endl;
         }
         else{
