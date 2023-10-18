@@ -19,6 +19,6 @@ int main(){
             maximumrunways = (i.second>maximumrunways)?i.second:maximumrunways;
 
         }
-        cout<<maximumrunways;
+        cout<<maximumrunways<<endl;
     }
 }
