@@ -10,11 +10,9 @@ int main(){
         if(a==b){
             cout<<0<<endl;
         }
-        else if(a-b>0){
+        else {
             cout<<(a-b)*c<<endl;
         }
-        else{
-            cout<<0<<endl;
-        }
+        
     }
 }
