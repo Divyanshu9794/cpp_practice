@@ -7,9 +7,9 @@ int main(){
     while (t--)
     {
         /* code */
-        int a, b , c;
-        cin>>a>>b>>c;
-        if(a*c<b){
+        int a;
+        cin>>a;
+        if(a+3<=10){
             cout<<"Yes"<<endl;
         }
         else{
