@@ -1,0 +1,26 @@
+#include <iostream>
+
+int countDivisors(int n) {
+    int count = 0;
+    for (int i = 1; i <= n; ++i) {
+        if (n % i == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    int T;
+    std::cin >> T;
+
+    for (int t = 0; t < T; ++t) {
+        int N;
+        std::cin >> N;
+
+        int result = countDivisors(N);
+        std::cout << result << std::endl;
+    }
+
+    return 0;
+}
