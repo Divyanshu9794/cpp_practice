@@ -33,6 +33,7 @@ int main() {
 	 else if(a2>a1){
 	     cout<<"Bob"<<endl;
 	      }
+          
 	 else{
 	     cout<<"Tie"<<endl;
 	 }
