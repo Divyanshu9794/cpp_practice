@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+#include<vector>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    vector<char> s;
+	    char a,b,c,d,e,f;
+	    cin>>a>>b>>c>>d>>e>>f;
+	    s.push_back(a);
+	    s.push_back(b);
+	    s.push_back(c);
+	    s.push_back(d);
+	    s.push_back(e);
+	    s.push_back(f);
+	    for(int i=0;i<s.size()-2;i++){
+	        if(s[i]==s[i+1]==s[i+2]=='W'){
+	            cout<<"YES"<<endl;
+	            break;
+	        }
+	        else{
+	            continue;
+	        }
+	    }
+	}
+
+}
