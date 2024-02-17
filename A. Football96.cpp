@@ -13,15 +13,18 @@ int main(){
         if(s[i]==s[i+1]){
             c++;
         }
-        else if( s[i]!=s[i+1]){
+        else {
             c=1;
         }
-        else if(c>=7){
+        if(c>=7){
+            break;
+        }
+        
+    }
+    if(c>=7){
             cout<<"YES"<<endl;
-
         }
         else{
             cout<<"NO"<<endl;
         }
-    }
 }
