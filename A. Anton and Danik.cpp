@@ -18,7 +18,10 @@ int main(){
     if(ac>dc){
         cout<<"Anton"<<endl;
     }
-    else{
+    else if(dc>ac){
         cout<<"Danik"<<endl;
+    }
+    else{
+        cout<<"Friendship"<<endl;
     }
 }
