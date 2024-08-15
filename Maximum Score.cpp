@@ -15,7 +15,7 @@ int main() {
      int score = 0;
      int odd=0,even=0;
      for(int i=0;i<n;i++){
-         if(arr[i]==0) odd++;
+         if(arr[i]==0) odd++; 
          else even++;
      }
      cout<<min(even,odd)<<endl;
