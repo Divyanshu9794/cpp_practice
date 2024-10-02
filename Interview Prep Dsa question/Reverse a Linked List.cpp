@@ -29,23 +29,73 @@
     }
 };*/
 
+
+
+#include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int data;
+    struct Node* next;
+    Node(int data) {
+        this->data = data;
+        next = NULL;
+    }
+};
+
 Node* reverseList(Node* head) {
-    
     vector<int> v;
     Node* rev = head;
     Node* t = head;
-    
-    while(t!=NULL){
+
+    while (t != NULL) {
         v.push_back(t->data);
-        
         t = t->next;
-        
     }
-    reverse(v.begin(),v.end());
-    for(int i=0;i<v.size();i++){
+
+    reverse(v.begin(), v.end());
+
+    for (int i = 0; i < v.size(); i++) {
         rev->data = v[i];
-        rev=rev->next;
-        
+        rev = rev->next;
     }
+
     return head;
+}
+
+void insertNode(Node*& head, int data) {
+    if (head == NULL) {
+        head = new Node(data);
+    } else {
+        Node* temp = head;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = new Node(data);
+    }
+}
+
+void printList(Node* head) {
+    while (head != NULL) {
+        cout << head->data << " ";
+        head = head->next;
+    }
+}
+
+int main() {
+    int N, data;
+    Node* head = NULL;
+
+    cin >> N;
+    for (int i = 0; i < N; i++) {
+        cin >> data;
+        insertNode(head, data);
+    }
+
+    head = reverseList(head);
+    printList(head);
+
+    return 0;
 }
