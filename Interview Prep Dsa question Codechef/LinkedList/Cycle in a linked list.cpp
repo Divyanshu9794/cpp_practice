@@ -62,3 +62,84 @@
 
 
 
+
+#include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int data;
+    struct Node* next;
+    Node(int data) {
+        this->data = data;
+        next = NULL;
+    }
+};
+Node* detectCycle(Node* head){
+
+    Node* slow= head;
+    Node* fast = head;
+    bool hascycle = false;
+
+    while(fast && fast->next){
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast){
+            hascycle = true;
+            break;
+        }
+    }
+    if(!hascycle){
+        return NULL;
+    }
+    
+    slow = head;
+
+    while(slow!=fast){
+        fast= fast->next;
+        slow = slow->next;
+
+    }   
+        
+    return slow;
+    
+
+}
+
+
+void insertNode(Node*& head, int data) {
+    if (head == NULL) {
+        head = new Node(data);
+    } else {
+        Node* temp = head;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = new Node(data);
+    }
+}
+
+void printList(Node* head) {
+    while (head != NULL) {
+        cout << head->data << " ";
+        head = head->next;
+    }
+}
+
+int main() {
+    int N, data;
+    Node* head = NULL;
+
+    cin >> N;
+    for (int i = 0; i < N; i++) {
+        cin >> data;
+        insertNode(head, data);
+    }
+
+    head = detectCycle(head);
+    printList(head);
+
+    return 0;
+}
