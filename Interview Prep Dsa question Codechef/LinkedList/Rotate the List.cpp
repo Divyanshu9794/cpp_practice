@@ -95,25 +95,50 @@
 
 
 
-
-
 #include <iostream>
 #include <vector>
-#include<bits/stdc++.h>
 using namespace std;
 
 struct Node {
-	int val;
-	struct Node* next;
-	Node(int x){
-		val = x;
-		next = NULL;
-	}
+    int val;
+    struct Node* next;
+    Node(int x) {
+        val = x;
+        next = NULL;
+    }
 };
 
-Node* rotateRight(Node* head, int R){
-    
+Node* rotateRight(Node* head, int R) {
+    if (!head || R == 0)
+    {
+         return head;
+    }
+    Node* tail = head;
+    int length = 1;
+    while (tail->next) {
+        tail = tail->next;
+        length++;
+    }
+
+    tail->next = head;
+
+    R = R % length;
+    if (R == 0) {
+        tail->next = NULL;
+        return head;
+    }
+
+    Node* newTail = head;
+    for (int i = 0; i < length - R - 1; ++i) {
+        newTail = newTail->next;
+    }
+
+    Node* newHead = newTail->next;
+    newTail->next = NULL;
+
+    return newHead;
 }
+
 void insertNode(Node*& head, int data) {
     if (head == NULL) {
         head = new Node(data);
@@ -131,26 +156,26 @@ void printList(Node* head) {
         cout << head->val << " ";
         head = head->next;
     }
+    cout << endl;
 }
 
 int main() {
-    int N, data;
-    Node* head = NULL;
+    int T;
+    cin >> T;
+    while (T--) {
+        int N, R, data;
+        Node* head = NULL;
 
-    cin >> N;
+        cin >> N >> R;
 
-    int r;
-    cin>>r;
-    for (int i = 0; i < N; i++) {
-        cin >> data;
-        insertNode(head, data);
+        for (int i = 0; i < N; i++) {
+            cin >> data;
+            insertNode(head, data);
+        }
+
+        head = rotateRight(head, R);
+        printList(head);
     }
-
-    head = rotateRight(head,r);
-    printList(head);
-
-    
-    // printList(head);
 
     return 0;
 }
