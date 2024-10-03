@@ -130,8 +130,10 @@ int main() {
         insertNode(head, data);
     }
 
-    int a  = removeDuplicates(head);
-    cout<<a<<endl;
+    head = removeDuplicates(head);
+    printList(head);
+
+    
     // printList(head);
 
     return 0;
