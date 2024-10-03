@@ -59,9 +59,25 @@
     Node(int x, Node *n) : val(x), next(n) {}
   };
   */
-class Solution{
-	public:
-	Node* removeDuplicates(Node* head) {
+
+
+
+
+#include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Node {
+	int val;
+	struct Node* next;
+	Node(int x){
+		val = x;
+		next = NULL;
+	}
+};
+
+Node* removeDuplicates(Node* head) {
         if (!head)
         {
             return head;  
@@ -83,4 +99,40 @@ class Solution{
         }
         return head;
     }
-};
+
+
+void insertNode(Node*& head, int data) {
+    if (head == NULL) {
+        head = new Node(data);
+    } else {
+        Node* temp = head;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = new Node(data);
+    }
+}
+
+void printList(Node* head) {
+    while (head != NULL) {
+        cout << head->val << " ";
+        head = head->next;
+    }
+}
+
+int main() {
+    int N, data;
+    Node* head = NULL;
+
+    cin >> N;
+    for (int i = 0; i < N; i++) {
+        cin >> data;
+        insertNode(head, data);
+    }
+
+    int a  = removeDuplicates(head);
+    cout<<a<<endl;
+    // printList(head);
+
+    return 0;
+}
