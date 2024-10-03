@@ -1,19 +1,15 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 ListNode* merge(ListNode* l1, ListNode* l2) {
     if (!l1) return l2;
     if (!l2) return l1;
@@ -52,7 +48,7 @@ ListNode* getMiddle(ListNode* head) {
     return slow;
 }
 
-ListNode* Solution::sortList(ListNode* head) {
+ListNode* sortList(ListNode* head) {
     if (!head || !head->next) return head;
     
     ListNode* middle = getMiddle(head);
@@ -66,3 +62,31 @@ ListNode* Solution::sortList(ListNode* head) {
     return merge(left, right);
 }
 
+void printList(ListNode* head) {
+    while (head) {
+        cout << head->val << " ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    vector<int> values = {4, 2, 1, 3};
+    ListNode* head = new ListNode(values[0]);
+    ListNode* current = head;
+    
+    for (int i = 1; i < values.size(); ++i) {
+        current->next = new ListNode(values[i]);
+        current = current->next;
+    }
+
+    cout << "Original list: ";
+    printList(head);
+
+    head = sortList(head);
+
+    cout << "Sorted list: ";
+    printList(head);
+
+    return 0;
+}
